@@ -29,4 +29,3 @@ const ProductCard = ({ fields, addToCart }) => {
 };
 
 export default ProductCard;
-<img></img>;
