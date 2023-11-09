@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../Button";
 
 const ProductCard = ({ fields, addToCart }) => {
   let { name, price } = fields;
@@ -17,12 +18,17 @@ const ProductCard = ({ fields, addToCart }) => {
           <h4 className="capitalize">{name}</h4>
           <p>${price}</p>
         </div>
-        <button
+        <Button
+          classes="m-auto px-2 py-1 w-1/2 bg-gray-400 rounded-md hover:bg-gray-500 hover:text-gray-300"
+          text="Add to cart"
+          handleOnClick={addToCart}
+        />
+        {/* <button
           className="m-auto px-2 py-1 w-1/2 bg-gray-400 rounded-md hover:bg-gray-500 hover:text-gray-300"
           onClick={addToCart}
         >
           Add to cart
-        </button>
+        </button> */}
       </div>
     </article>
   );
