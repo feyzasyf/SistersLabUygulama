@@ -1,6 +1,9 @@
-import React from "react";
+import { useSelector, useDispatch } from 'react-redux'
+import { increment , decrement } from '../store/cartSlice';
 
-const CartItem = () => {
+const CartItem = ({cart}) => {
+  const {title , img , price , amount} = cart
+  
   return (
     <article className="cart-item">
       <img src={img} alt={title} />
@@ -17,16 +20,17 @@ const CartItem = () => {
       <div>
         <button
           className="amount-btn"
+          onClick={increment}
           //toggleItem
         >
-          <ChevronUp />
+          increase
         </button>
         <p className="amount">{amount}</p>
         <button
           className="amount-btn"
-          //decrease
+          
         >
-          <ChevronDown />
+         decrease
         </button>
       </div>
     </article>
