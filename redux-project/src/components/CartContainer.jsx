@@ -25,7 +25,9 @@ const CartContainer = () => {
       </div>
       <footer>
         <hr />
-        <div className="cart-total">{/* <h4>total: {total} </h4> */}</div>
+        <div className="cart-total">
+          <h4>total: {total} </h4>
+        </div>
         <button className="btn clear-btn" onClick={() => dispatch(clearCart())}>
           clear cart
         </button>
