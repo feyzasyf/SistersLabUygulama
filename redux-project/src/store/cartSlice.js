@@ -1,10 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import cartItems from "../cartItems";
 
 const initialState = {
   total: 0,
   items: cartItems,
-  amount: 0,
+  amount: 4,
 };
 
 export const cartSlice = createSlice({
@@ -32,6 +32,11 @@ export const cartSlice = createSlice({
       state.items = [];
     },
     calculateTotals: (state) => {
+      const amount = state.items.reduce(
+        (total, item) => (total += item.amount),
+        0
+      );
+      state.amount = amount;
       state.total = state.items.reduce(
         (total, item) => (total += item.price * item.amount),
         0

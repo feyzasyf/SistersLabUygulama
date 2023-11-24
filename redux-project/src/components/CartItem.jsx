@@ -20,7 +20,7 @@ const CartItem = ({ cart }) => {
       <div>
         <button
           className="amount-btn"
-          onClick={() => dispatch(increment())}
+          onClick={() => dispatch(increment(id))}
           //toggleItem
         >
           <ChevronUp />
