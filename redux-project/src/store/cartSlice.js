@@ -1,11 +1,19 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import cartItems from "../cartItems";
+import axios from "axios";
 
 const initialState = {
   total: 0,
-  items: cartItems,
+  items: [],
   amount: 4,
 };
+
+export const fetchData = createAsyncThunk('data/fetchData', async () => {
+  const response = await axios.get(
+    'https://course-api.com/react-useReducer-cart-project'
+  );
+  return response.data;
+});
 
 export const cartSlice = createSlice({
   name: "cart",
@@ -43,6 +51,11 @@ export const cartSlice = createSlice({
       );
     },
   },
+  extraReducers:(builder)=>{
+    builder.addCase(fetchData.fulfilled,(state,action)=>{
+      state.items =action.payload;
+    })
+  }
 });
 
 // Action creators are generated for each case reducer function
