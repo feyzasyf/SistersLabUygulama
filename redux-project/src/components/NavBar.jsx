@@ -1,5 +1,4 @@
-
-
+import { CartIcon } from "../icons";
 
 const NavBar = () => {
   return (
@@ -7,7 +6,8 @@ const NavBar = () => {
       <div className="nav-center">
         <h3>redux toolkit</h3>
         <div className="nav-container">
-          <h1>Cart</h1>
+          <CartIcon />
+
           <div className="amount-container">
             {/* <p className="total-amount">{amount}</p> */}
           </div>

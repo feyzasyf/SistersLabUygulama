@@ -1,9 +1,10 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { increment , decrement } from '../store/cartSlice';
+import { useSelector, useDispatch } from "react-redux";
+import { increment, decrement } from "../store/cartSlice";
+import { ChevronDown, ChevronUp } from "../icons";
 
-const CartItem = ({cart}) => {
-  const {title , img , price , amount} = cart
-  
+const CartItem = ({ cart }) => {
+  const { title, img, price, amount } = cart;
+
   return (
     <article className="cart-item">
       <img src={img} alt={title} />
@@ -23,14 +24,11 @@ const CartItem = ({cart}) => {
           onClick={increment}
           //toggleItem
         >
-          increase
+          <ChevronUp />
         </button>
         <p className="amount">{amount}</p>
-        <button
-          className="amount-btn"
-          
-        >
-         decrease
+        <button className="amount-btn">
+          <ChevronDown />
         </button>
       </div>
     </article>
