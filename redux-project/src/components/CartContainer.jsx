@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import CartItem from "./CartItem";
 import { useEffect } from "react";
-import { clearCart, calculateTotals } from "../store/cartSlice";
+import { clearCart, calculateTotals, fetchData } from "../store/cartSlice";
 
 const CartContainer = () => {
   const dispatch = useDispatch();
@@ -12,6 +12,9 @@ const CartContainer = () => {
     dispatch(calculateTotals());
   }, [cartItems]);
 
+  useEffect(()=>{
+    dispatch(fetchData())
+  },)
   console.log(cartItems);
   return (
     <section className="cart">
