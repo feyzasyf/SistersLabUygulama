@@ -21,14 +21,22 @@ export const cartSlice = createSlice({
     decrement: (state) => {
       state.value -= 1;
     },
-    removeItem: (state, action) => {},
-    clearCart : (state) => {
-        state.items = []
-    }
+    removeItem: (state, action) => {
+      state.items = state.items.filter((item) => item.id !== action.payload);
+    },
+    clearCart: (state) => {
+      state.items = [];
+    },
+    calculateTotals: (state) => {
+      state.total = state.items.reduce(
+        (total, item) => (total += item.price * item.amount)
+      );
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount , removeItem , clearCart } = cartSlice.actions;
+export const { increment, decrement, removeItem, clearCart, calculateTotals } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
