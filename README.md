@@ -1,2 +1,2 @@
 # SistersLabUygulama
-Sisters Lab Front end Bootcamp uygulama seansı projeleri
+Sisters Lab Front end Bootcamp coding session projects
